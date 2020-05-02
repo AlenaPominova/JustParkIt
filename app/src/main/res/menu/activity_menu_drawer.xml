@@ -13,13 +13,13 @@
             android:icon="@android:drawable/star_big_off"
             android:title="@string/menu_profile" />
         <item
-            android:id="@+id/nav_analitic"
+            android:id="@+id/nav_analytic"
             android:icon="@android:drawable/ic_menu_view"
-            android:title="@string/menu_analitic" />
+            android:title="@string/menu_analytic" />
         <item
-            android:id="@+id/nav_setting"
+            android:id="@+id/nav_settings"
             android:icon="@android:drawable/ic_menu_manage"
-            android:title="@string/menu_setting" />
+            android:title="@string/menu_settings" />
         <item
             android:id="@+id/nav_sing_in"
             android:icon="@android:drawable/ic_delete"

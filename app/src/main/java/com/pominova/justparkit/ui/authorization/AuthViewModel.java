@@ -1,16 +1,16 @@
-package com.pominova.justparkit.ui.home;
+package com.pominova.justparkit.ui.authorization;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class AuthViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public AuthViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("This is auth fragment");
     }
 
     public LiveData<String> getText() {

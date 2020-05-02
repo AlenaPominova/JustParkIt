@@ -1,16 +1,16 @@
-package com.pominova.justparkit.ui.gallery;
+package com.pominova.justparkit.ui.analytic;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class AnalyticViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public AnalyticViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("This is analytic fragment");
     }
 
     public LiveData<String> getText() {
