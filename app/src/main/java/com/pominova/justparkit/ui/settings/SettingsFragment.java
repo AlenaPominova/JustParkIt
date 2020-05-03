@@ -1,36 +1,46 @@
 package com.pominova.justparkit.ui.settings;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
+import com.pominova.justparkit.MenuActivity;
 import com.pominova.justparkit.R;
 
 public class SettingsFragment extends Fragment {
 
-    private SettingsViewModel settingsViewModel;
+    public static final String IS_DARK_THEME = "isDarkTheme";
+    private Switch themeSwitch;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
-        settingsViewModel =
-                ViewModelProviders.of(this).get(SettingsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_settings, container, false);
-        final TextView textView = root.findViewById(R.id.text_settings);
-        settingsViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+
+        changeTheme(root);
+
+        return root;
+    }
+
+    private void changeTheme(View root) {
+        themeSwitch = root.findViewById(R.id.darkThemeSwitch);
+        SharedPreferences settings = ((MenuActivity) getActivity()).getSettings();
+        themeSwitch.setChecked(settings.getBoolean(IS_DARK_THEME, false));
+        themeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    ((MenuActivity) getActivity()).ToggleTheme(isChecked);
+                } else {
+                    ((MenuActivity) getActivity()).ToggleTheme(isChecked);
+                }
             }
         });
-        return root;
     }
 }
